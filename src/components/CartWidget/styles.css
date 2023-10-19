@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Mate&display=swap');
+
+.cart {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.cart-icon {
+    color: #9D6B06;
+    font-family: 'Mate', serif;
+    font-size: 1.8rem;
+}
+
+.cart-count {
+    color: #9D6B06;
+    font-family: 'Mate', serif;
+    font-size: 1.8rem;
+}

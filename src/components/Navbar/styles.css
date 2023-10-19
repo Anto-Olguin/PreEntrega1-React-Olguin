@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Mate&display=swap');
+body {
+    font-family: 'Mate', serif;
+    background-color: #432C63;
+}
+
+h1 {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    font-size: 5rem;
+    color: #9D6B06;
+}
+
+.navbar-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 0.5%;
+}
+
+.list-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+    list-style: none;
+}
+
+.category-button {
+    background-color: transparent;
+    border: none;
+    color: #9D6B06;
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+}
