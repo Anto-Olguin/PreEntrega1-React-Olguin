@@ -6,7 +6,7 @@ const CartWidget = () => {
         <div className='cart'>
             <Icon.Cart className='cart-icon'/>
             <div className='cart-count'>
-                <span>4</span>
+                <span>3</span>
             </div>
         </div>
     );

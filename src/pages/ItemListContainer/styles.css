@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Mate&display=swap');
 
-.greeting {
-    color: #F39F5A;
+h2 {
+    display: flex;
+    justify-content: center;
+    color: #662549;
     font-family: 'Mate', serif;
-    font-size: 2rem;
+    font-size: 3rem;
 }

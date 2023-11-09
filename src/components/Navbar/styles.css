@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Mate&display=swap');
 body {
     font-family: 'Mate', serif;
-    background-color: #662549;
+    background-color: #F1EAFF;
 }
 
-h1 {
+.titulo {
     display: flex;
-    justify-self: center;
-    align-self: center;
-    font-size: 5rem;
-    color: #F39F5A;
+    justify-content: center;
+    font-size: 3rem;
+    color: #662549;
+    margin-left: 400px;
 }
 
 .navbar-container{
@@ -31,7 +31,7 @@ h1 {
 .category-button {
     background-color: transparent;
     border: none;
-    color: #F39F5A;
+    color: #662549;
     font-family: inherit;
     font-size: 1.5rem;
     font-weight: 600;

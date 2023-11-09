@@ -5,9 +5,9 @@ const Navbar = () => {
     return (
         <div className='navbar-container'>
             <div>
-                <img alt='Logo Pollila' src={'/public/images/logo.png'} width='100px'/>
+                <img src='../../../public/images/logo.png' alt='Logo Pollila' width='100px'/>
             </div>
-            <div>
+            <div className='titulo'>
                 <h1>Miss Skull Shop</h1>
             </div>
             <div>

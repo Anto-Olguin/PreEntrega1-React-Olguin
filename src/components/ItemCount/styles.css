@@ -1,0 +1,26 @@
+.botones {
+    justify-content: space-evenly;
+    background-color: transparent;
+    border: solid;
+    border-radius: 20px;
+    border-color: #662549;
+    color: #662549;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    height: 60px;
+    width: 50px;
+}
+
+.numero {
+    font-size: 2rem;
+    color: #662549;
+    padding: 10px;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+}
