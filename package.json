@@ -1,5 +1,5 @@
 {
-  "homepage":"https://anto-olguin.github.io/PreEntrega1-React-Olguin",
+  "homepage": "https://anto-olguin.github.io/PreEntrega1-React-Olguin",
   "name": "miss-skull-shop",
   "version": "0.1.0",
   "private": true,
@@ -12,12 +12,13 @@
     "react-bootstrap": "^2.9.0",
     "react-bootstrap-icons": "^1.10.3",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy" : "gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Mate&display=swap');
 body {
     font-family: 'Mate', serif;
-    background-color: #432C63;
+    background-color: #662549;
 }
 
 h1 {
@@ -9,7 +9,7 @@ h1 {
     justify-self: center;
     align-self: center;
     font-size: 5rem;
-    color: #9D6B06;
+    color: #F39F5A;
 }
 
 .navbar-container{
@@ -31,7 +31,7 @@ h1 {
 .category-button {
     background-color: transparent;
     border: none;
-    color: #9D6B06;
+    color: #F39F5A;
     font-family: inherit;
     font-size: 1.5rem;
     font-weight: 600;

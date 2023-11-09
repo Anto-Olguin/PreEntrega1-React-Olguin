@@ -1,11 +1,11 @@
 import './styles.css';
 import CartWidget from '../CartWidget/CartWidget';
-
+import { Link } from 'react-router-dom';
 const Navbar = () => {
     return (
         <div className='navbar-container'>
             <div>
-                <img alt='Logo Pollila' src={'./images/logo.png'} width='100px'/>
+                <img alt='Logo Pollila' src={'/public/images/logo.png'} width='100px'/>
             </div>
             <div>
                 <h1>Miss Skull Shop</h1>
@@ -13,10 +13,10 @@ const Navbar = () => {
             <div>
                 <ul className='list-container'>
                     <li>
-                        <button className='category-button'>Amigurumis</button>
+                        <Link to={'/category/amigurumis'} className='category-button'>Amigurumis</Link>
                     </li>
                     <li>
-                        <button className='category-button'>Totebags</button>
+                        <Link to={'/category/totebags'} className='category-button'>Totebags</Link>
                     </li>
                 </ul>
             </div>
