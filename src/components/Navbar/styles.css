@@ -19,6 +19,12 @@ body {
     margin-top: 0.5%;
 }
 
+.logo {
+    text-decoration: none;
+    padding: 8px 16px;
+    color: gray;
+}
+
 .list-container{
     display: flex;
     flex-direction: row;
