@@ -1,12 +1,13 @@
 import './styles.css';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
+import logo from '../../img/logo.png';
 const Navbar = () => {
     return (
         <div className='navbar-container'>
             <div>
                 <a href='http://localhost:3000/' className='logo'>
-                    <img src='../../../public/img/logo.png' alt='Logo Pollila' width='100px'/>
+                    <img src={logo} alt='Logo Pollila' width={100}/>
                 </a>
             </div>
             <div className='titulo'>

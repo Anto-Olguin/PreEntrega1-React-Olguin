@@ -1,10 +1,18 @@
+import bat from '../../img/bat.png';
+import devil from '../../img/devil.png';
+import pumpkimboy from '../../img/pumpkin-boy.png';
+import goat from '../../img/goat.png';
+import ghosts from '../../img/ghosts.png';
+import catTote from '../../img/cat-tote.png';
+import ghostTote from '../../img/ghost-tote.png';
+
 const products = [
     {
         id: 1,
         title: "Plushie Murcielago",
         description: "Plushie a crochet, relleno de fibra de poliester, con ojos de seguridad.",
         price: 3000,
-        img: "../../../public/img/bat.png",
+        img: bat,
         category: "amigurumis",
     },
 
@@ -13,16 +21,16 @@ const products = [
         title: "Plushie Diablito",
         description: "Plushie a crochet, relleno de fibra de poliester, con ojos de seguridad.",
         price: 3000,
-        img: "../../../public/img/devil.png",
+        img: devil,
         category: "amigurumis",
     },
 
     {
         id: 3,
-        title: "Plushie Jack O Lantern",
+        title: "Plushie Pumpkin",
         description: "Plushie a crochet, relleno de fibra de poliester, con ojos de seguridad.",
         price: 3000,
-        img: "../../../public/img/pumpkin-boy.png",
+        img: pumpkimboy,
         category: "amigurumis",
     },
 
@@ -31,7 +39,7 @@ const products = [
         title: "Plushie Cabrita",
         description: "Plushie a crochet, relleno de fibra de poliester, con ojos de seguridad.",
         price: 3000,
-        img: "../../../public/img/goat.png",
+        img: goat,
         category: "amigurumis",
     },
 
@@ -40,7 +48,7 @@ const products = [
         title: "Colgante Fantasmas",
         description: "Plushies colgantes a crochet, rellenos de fibra de poliester, con ojos de seguridad.",
         price: 3000,
-        img: "../../../public/img/ghosts.png",
+        img: ghosts,
         category: "amigurumis",
     },
 
@@ -49,7 +57,7 @@ const products = [
         title: "Totebag Gatito",
         description: "Totebag en dos agujas, con forro interno de lino.",
         price: 2500,
-        img: "../../../public/img/cat-tote.png",
+        img: catTote,
         category: "totebags",
     },
 
@@ -58,7 +66,7 @@ const products = [
         title: "Totebag Fantasma",
         description: "Totebag en dos agujas, con forro interno de lino.",
         price: 2500,
-        img: "../../../public/img/ghost-tote.png",
+        img: ghostTote,
         category: "totebags",
     },
 ];

@@ -1,25 +1,26 @@
-import { Link, useParams } from 'react-router-dom';
-import Item from '../Item/Item';
-import './styles.css';
-import { useEffect, useState } from 'react';
+import { Link, useParams, Routes, Route } from "react-router-dom";
+import Item from "../Item/Item";
+import "./styles.css";
+import { useEffect, useState } from "react";
+import ItemDetailContainer from "../../pages/ItemDetailContainer/ItemDetailContainer";
 
-const ItemList = ({products}) => {
-    const { id } = useParams();
-    const [filteredItems, setFilteredItems] = useState([]);
+const ItemList = ({ products }) => {
+const { id } = useParams();
+const [filteredItems, setFilteredItems] = useState([]);
 
     useEffect(() => {
         if (!id) {
             setFilteredItems(products);
         } else {
             const filtered = products.filter((product) => product.category === id);
-            setFilteredItems(filtered);
+        setFilteredItems(filtered);
         }
     }, [id]);
 
     return (
         <div className="item-list-container">
             {filteredItems.map((product) => (
-            <Link to={"item/" + product.id} key={product.id} className='link'>
+            <Link to={"item/" + product.id} key={product.id} className="link">
                 <Item
                     title={product.title}
                     description={product.description}
@@ -28,6 +29,11 @@ const ItemList = ({products}) => {
                 />
             </Link>
             ))};
+
+            <Routes>
+                <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+            </Routes>
+
         </div>
     );
 };
