@@ -1,6 +1,6 @@
 import './styles.css';
 import CartWidget from '../CartWidget/CartWidget';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../../img/logo.png';
 const Navbar = () => {
     return (
@@ -16,10 +16,10 @@ const Navbar = () => {
             <div>
                 <ul className='list-container'>
                     <li>
-                        <Link to={'/category/amigurumis'} className='category-button'>Amigurumis</Link>
+                        <NavLink activeclassname='active' to={'/category/amigurumis'} className='category-button'>Amigurumis</NavLink>
                     </li>
                     <li>
-                        <Link to={'/category/totebags'} className='category-button'>Totebags</Link>
+                        <NavLink activeclassname='active' to={'/category/totebags'} className='category-button'>Totebags</NavLink>
                     </li>
                 </ul>
             </div>

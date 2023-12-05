@@ -1,9 +1,6 @@
-import { useState } from "react";
 import './styles.css';
 
-const ItemCount = () => {
-    const [count, setCount] = useState(0);
-    const stock = 5;
+const ItemCount = ({ stock, count, setCount }) => {
 
     const onAdd = () => {
         if(count === stock) return;
@@ -16,9 +13,9 @@ const ItemCount = () => {
     };
     return (
     <div className="contador">
-        <button className="botones" onClick={onSubstract}>-</button>
+        {count === 0 ? null : <button className="botones" onClick={onSubstract}>-</button>}
         <span className="numero">{count}</span>
-        <button className="botones" onClick={onAdd}>+</button>
+        {count === stock ? null : <button className="botones" onClick={onAdd}>+</button>}
     </div>);
 };
 
