@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const ItemDetail = ({ itemSelected }) => {
     const [count, setCount] = useState(0);
-    const stock = 10;
+    const stock = 6;
     const navigate = useNavigate();
 
     const handleNavigation = () => {
