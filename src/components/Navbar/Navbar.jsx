@@ -13,7 +13,7 @@ import { ThemeContext } from '../../context/ThemeContext';
                     <a href='http://localhost:3000/' className='logo'>
                     <img src={logo} alt="Logo Pollila" width={100} />
                     </a>
-                    <button class='themeButton' onClick={() => setTheme((currentValue) => currentValue === 'light' ? '#662549' : '#F1EAFF')}>Tema</button>
+                    <button className='themeButton' onClick={() => setTheme((currentValue) => currentValue === 'light' ? '#662549' : '#F1EAFF')}>Tema</button>
                 </div>
                 <div className='titulo'>
                     <h1>Miss Skull Shop</h1>
@@ -28,7 +28,8 @@ import { ThemeContext } from '../../context/ThemeContext';
                     </li>
                     </ul>
                 </div>
-                <CartWidget />
+
+                <CartWidget/>
             </div>
         );
     };

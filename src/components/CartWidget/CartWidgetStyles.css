@@ -3,18 +3,26 @@
 .cart {
     display: flex;
     align-items: start;
-    justify-content: center;
-    margin-top: 1%;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.link {
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
 }
 
 .cart-icon {
     color: #662549;
     font-family: 'Mate', serif;
-    font-size: 2rem;
+    font-size: 1.6rem;
+    padding-right: 10px;
 }
 
 .cart-count {
     color: #662549;
     font-family: 'Mate', serif;
     font-size: 1.8rem;
+    margin-top: -5px;
 }

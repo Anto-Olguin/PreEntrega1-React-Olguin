@@ -20,7 +20,7 @@ const [filteredItems, setFilteredItems] = useState([]);
     return (
         <div className='item-list-container'>
             {filteredItems.map((product) => (
-            <Link to={"item/" + product.id} key={product.id} className='link'>
+            <Link to={'item/' + product.id} key={product.id} className='link'>
                 <Item
                     title={product.title}
                     description={product.description}
@@ -28,7 +28,7 @@ const [filteredItems, setFilteredItems] = useState([]);
                     img={product.img}
                 />
             </Link>
-            ))};
+            ))}
 
             <Routes>
                 <Route path='/item/:id' element={<ItemDetailContainer/>}/>

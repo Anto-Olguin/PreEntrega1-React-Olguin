@@ -1,0 +1,54 @@
+.item-list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.link {
+    text-decoration: none;
+    color: gray;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    color: #662549;
+    font-family: 'Mate', serif;
+    font-size: 3rem;
+}
+
+.clearButton {
+    background-color: transparent;
+    color: #662549;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: solid;
+    font-family: 'Mate', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.aviso {
+    font-size: 1.5rem;
+    color: #662549;
+    text-decoration: none;
+}
+
+.erase {
+    display: flex;
+    justify-self: center;
+    background-color: transparent;
+    color: #662549;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: solid;
+    font-family: 'Mate', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

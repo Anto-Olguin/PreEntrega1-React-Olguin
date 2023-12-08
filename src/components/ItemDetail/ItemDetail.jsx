@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ itemSelected }) => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
     const stock = 6;
     const navigate = useNavigate();
     const {addItem} = useContext(CartContext);
@@ -29,8 +29,8 @@ const ItemDetail = ({ itemSelected }) => {
             <span>Stock: {stock}</span>
             <p>${itemSelected?.price}</p>
             <div>
-                <button class='cardButton' onClick={handleNavigation}>Terminar mi compra</button>
-                <button class='cardButton' onClick={addToCart}>Agregar al carrito</button>
+                <button className='cardButton' onClick={handleNavigation}>Terminar mi compra</button>
+                <button className='cardButton' onClick={addToCart}>Agregar al carrito</button>
                 <ItemCount count={count} setCount={setCount} stock={stock}/>
             </div>
         </div>
