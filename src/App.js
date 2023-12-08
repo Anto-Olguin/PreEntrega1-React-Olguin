@@ -3,15 +3,15 @@ import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './pages/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
 import Cart from './pages/Cart/Cart';
-import { ThemeContext } from './context/ThemeContext';
-import { useState } from 'react';
+import CartProvider from './context/CartProvider';
+import ThemeProvider from './context/ThemeProvider';
 
 function App() {
-  const [theme, setTheme] = useState('light');
 
   return (
     <BrowserRouter>
-      <ThemeContext.Provider value={{theme, setTheme}}>
+    <ThemeProvider>
+      <CartProvider>
       <Navbar/>
       <Routes>
         <Route path="/" element={<ItemListContainer/>}/>
@@ -20,7 +20,8 @@ function App() {
         <Route path='/category/:id/item/:id' element={<ItemDetailContainer/>}/>
         <Route path='/cart' element={<Cart/>}/>
       </Routes>
-      </ThemeContext.Provider>
+      </CartProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

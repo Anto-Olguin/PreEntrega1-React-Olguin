@@ -1,16 +1,23 @@
 import './styles.css';
 import { useNavigate } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ itemSelected }) => {
     const [count, setCount] = useState(0);
     const stock = 6;
     const navigate = useNavigate();
+    const {addItem} = useContext(CartContext);
 
     const handleNavigation = () => {
         navigate('/cart');
     };
+
+    const addToCart = () => {
+        addItem(itemSelected, count);
+    };
+
     return (
         <div className='card-container'>
             <h3 className='card-title'>{itemSelected?.title}</h3>
@@ -23,6 +30,7 @@ const ItemDetail = ({ itemSelected }) => {
             <p>${itemSelected?.price}</p>
             <div>
                 <button onClick={handleNavigation}>Terminar mi compra</button>
+                <button onClick={addToCart}>Agregar al carrito</button>
                 <ItemCount count={count} setCount={setCount} stock={stock}/>
             </div>
         </div>
