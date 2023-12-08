@@ -1,8 +1,8 @@
-import { Link, useParams, Routes, Route } from "react-router-dom";
-import Item from "../Item/Item";
-import "./ItemListStyles.css";
-import { useEffect, useState } from "react";
-import ItemDetailContainer from "../../pages/ItemDetailContainer/ItemDetailContainer";
+import { Link, useParams, Routes, Route } from 'react-router-dom';
+import Item from '../Item/Item';
+import './ItemListStyles.css';
+import { useEffect, useState } from 'react';
+import ItemDetailContainer from '../../pages/ItemDetailContainer/ItemDetailContainer';
 
 const ItemList = ({ products }) => {
 const { id } = useParams();
@@ -18,9 +18,9 @@ const [filteredItems, setFilteredItems] = useState([]);
     }, [id]);
 
     return (
-        <div className="item-list-container">
+        <div className='item-list-container'>
             {filteredItems.map((product) => (
-            <Link to={"item/" + product.id} key={product.id} className="link">
+            <Link to={"item/" + product.id} key={product.id} className='link'>
                 <Item
                     title={product.title}
                     description={product.description}
@@ -31,7 +31,7 @@ const [filteredItems, setFilteredItems] = useState([]);
             ))};
 
             <Routes>
-                <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+                <Route path='/item/:id' element={<ItemDetailContainer/>}/>
             </Routes>
 
         </div>

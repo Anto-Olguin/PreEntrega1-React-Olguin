@@ -1,7 +1,7 @@
 import './CartWidgetStyles.css';
 import * as Icon from 'react-bootstrap-icons';
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const CartWidget = () => {
     const { productQuantity } = useContext(CartContext);

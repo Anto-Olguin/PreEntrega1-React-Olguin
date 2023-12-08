@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Mate&display=swap');
 
-.card-container {
+.detail-card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #662549;
     width: 250px;
-    height: 450px;
+    height: 480px;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;

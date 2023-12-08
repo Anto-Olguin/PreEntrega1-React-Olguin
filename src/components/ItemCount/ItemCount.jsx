@@ -12,10 +12,10 @@ const ItemCount = ({ stock, count, setCount }) => {
         setCount(count - 1);
     };
     return (
-    <div className="contador">
-        {count === 0 ? null : <button className="botones" onClick={onSubstract}>-</button>}
-        <span className="numero">{count}</span>
-        {count === stock ? null : <button className="botones" onClick={onAdd}>+</button>}
+    <div className='contador'>
+        {count === 0 ? null : <button className='botones' onClick={onSubstract}>-</button>}
+        <span className='numero'>{count}</span>
+        {count === stock ? null : <button className='botones' onClick={onAdd}>+</button>}
     </div>);
 };
 
