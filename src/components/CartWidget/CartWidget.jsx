@@ -1,4 +1,4 @@
-import './styles.css';
+import './CartWidgetStyles.css';
 import * as Icon from 'react-bootstrap-icons';
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";

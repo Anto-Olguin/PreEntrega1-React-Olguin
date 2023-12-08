@@ -1,4 +1,4 @@
-import './styles.css';
+import './ItemListContainerStyles.css';
 import ItemList from '../../components/ItemList/ItemList';
 import products from '../../components/Products/Products';
 import { useContext } from 'react';

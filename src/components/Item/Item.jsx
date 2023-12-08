@@ -1,4 +1,4 @@
-import './styles.css';
+import './ItemStyles.css';
 
 const Item = ({title, description, price, img}) => {
     return (

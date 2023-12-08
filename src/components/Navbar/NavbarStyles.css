@@ -49,3 +49,14 @@ body {
 .active {
     color: #F39F5A
 }
+
+.themeButton {
+    background-color: #662549;
+    color: #F1EAFF;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Mate', serif;
+    font-size: 0.9rem;
+}

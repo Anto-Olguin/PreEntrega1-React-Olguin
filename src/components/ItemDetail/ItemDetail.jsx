@@ -1,4 +1,4 @@
-import './styles.css';
+import './ItemDetailStyles.css';
 import { useNavigate } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import { useContext, useState } from 'react';
@@ -29,8 +29,8 @@ const ItemDetail = ({ itemSelected }) => {
             <span>Stock: {stock}</span>
             <p>${itemSelected?.price}</p>
             <div>
-                <button onClick={handleNavigation}>Terminar mi compra</button>
-                <button onClick={addToCart}>Agregar al carrito</button>
+                <button class='cardButton' onClick={handleNavigation}>Terminar mi compra</button>
+                <button class='cardButton' onClick={addToCart}>Agregar al carrito</button>
                 <ItemCount count={count} setCount={setCount} stock={stock}/>
             </div>
         </div>

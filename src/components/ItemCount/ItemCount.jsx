@@ -1,4 +1,4 @@
-import './styles.css';
+import './ItemCountStyles.css';
 
 const ItemCount = ({ stock, count, setCount }) => {
 

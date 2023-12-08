@@ -1,0 +1,29 @@
+.botones {
+    display: flex;
+    background-color: transparent;
+    color: #F39F5A;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: solid;
+    border-color: #F39F5A;
+    font-family: 'Mate', serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 45px;
+    width: 45px;
+    margin: 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.numero {
+    font-size: 1.8rem;
+    color: #F39F5A;
+    padding: 10px;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+}

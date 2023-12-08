@@ -1,6 +1,6 @@
 import { Link, useParams, Routes, Route } from "react-router-dom";
 import Item from "../Item/Item";
-import "./styles.css";
+import "./ItemListStyles.css";
 import { useEffect, useState } from "react";
 import ItemDetailContainer from "../../pages/ItemDetailContainer/ItemDetailContainer";
 
