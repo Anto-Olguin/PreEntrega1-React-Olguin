@@ -3,10 +3,13 @@ import Item from '../Item/Item';
 import './ItemListStyles.css';
 import { useEffect, useState } from 'react';
 import ItemDetailContainer from '../../pages/ItemDetailContainer/ItemDetailContainer';
+import ClientFactory from '../../config/ClientFactory';
+
 
 const ItemList = ({ products }) => {
 const { id } = useParams();
 const [filteredItems, setFilteredItems] = useState([]);
+const {item} = ClientFactory();
 
     useEffect(() => {
         if (!id) {
