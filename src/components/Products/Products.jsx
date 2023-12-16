@@ -6,7 +6,7 @@ import ghosts from '../../img/ghosts.png';
 import catTote from '../../img/cat-tote.png';
 import ghostTote from '../../img/ghost-tote.png';
 
-const products = [
+const itemsVenta = [
     {
         id: 1,
         title: 'Plushie Murcielago',
@@ -71,4 +71,4 @@ const products = [
     },
 ];
 
-export default products;
+export default itemsVenta;

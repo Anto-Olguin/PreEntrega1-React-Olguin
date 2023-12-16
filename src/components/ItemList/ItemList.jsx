@@ -3,26 +3,42 @@ import Item from '../Item/Item';
 import './ItemListStyles.css';
 import { useEffect, useState } from 'react';
 import ItemDetailContainer from '../../pages/ItemDetailContainer/ItemDetailContainer';
-import ClientFactory from '../../config/ClientFactory';
+import {getFirestore, getDocs, collection} from 'firebase/firestore';
+//import {doc, getDoc} from 'firebase/firestore';
+//import { db } from './configFirebase';
 
 
-const ItemList = ({ products }) => {
+const ItemList = ({}) => {
 const { id } = useParams();
 const [filteredItems, setFilteredItems] = useState([]);
-const {item} = ClientFactory();
+
+//    useEffect(() => {
+//        const product = doc(db, 'items', '1MJRCIJAtO9aU7AVADxJ')
+//        getDoc(product).then((snapshot) => {
+//                if(snapshot.exists()) {
+//                    setFilteredItems({id: snapshot.id, ...snapshot.data()})
+//                }
+//        });
+//    }, []);
 
     useEffect(() => {
+        const db = getFirestore();
+        const productsQuery = collection(db, 'products');
+        const itemsVenta = getDocs(productsQuery).then((querySnapshot) => {
+            console.log(querySnapshot);
+        })
+
         if (!id) {
-            setFilteredItems(products);
+            setFilteredItems(itemsVenta);
         } else {
-            const filtered = products.filter((product) => product.category === id);
+            const filtered = itemsVenta.filter((product) => product.category === id);
         setFilteredItems(filtered);
         }
     }, [id]);
 
     return (
         <div className='item-list-container'>
-            {filteredItems.map((product) => (
+            {filteredItems.map((product) => {
             <Link to={'item/' + product.id} key={product.id} className='link'>
                 <Item
                     title={product.title}
@@ -31,7 +47,7 @@ const {item} = ClientFactory();
                     img={product.img}
                 />
             </Link>
-            ))}
+})}
 
             <Routes>
                 <Route path='/item/:id' element={<ItemDetailContainer/>}/>
