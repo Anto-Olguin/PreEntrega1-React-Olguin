@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
+import itemsVenta from "../components/Products/Products";
 
 const CartProvider = ({children}) => {
     const [products, setProducts] = useState([]);
@@ -11,7 +12,7 @@ const CartProvider = ({children}) => {
 
     const addItem = (product, quantity) => {
         if(isInCart(product.id)) {
-            const newProducts = products.map((item) => {
+            const newProducts = itemsVenta.map((item) => {
                 if(item.id === product.id) {
                     return {
                         ...item, quantity: item.quantity + quantity

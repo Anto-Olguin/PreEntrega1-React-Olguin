@@ -5,13 +5,8 @@ import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer
 import Cart from './pages/Cart/Cart';
 import CartProvider from './context/CartProvider';
 import ThemeProvider from './context/ThemeProvider';
+import { initializeApp } from 'firebase/app';
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDdUDhjJskMcDM0JyWwMoWJHsRG8UwMRPw",
   authDomain: "miss-skull-shop.firebaseapp.com",
@@ -21,7 +16,6 @@ const firebaseConfig = {
   appId: "1:679777054877:web:f85e3b53142f26cd426474"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 function App() {

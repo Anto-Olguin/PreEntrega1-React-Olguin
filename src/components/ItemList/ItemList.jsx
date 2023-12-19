@@ -8,7 +8,7 @@ import {getFirestore, getDocs, collection} from 'firebase/firestore';
 //import { db } from './configFirebase';
 
 
-const ItemList = ({}) => {
+const ItemList = () => {
 const { id } = useParams();
 const [filteredItems, setFilteredItems] = useState([]);
 
@@ -21,24 +21,51 @@ const [filteredItems, setFilteredItems] = useState([]);
 //        });
 //    }, []);
 
-    useEffect(() => {
-        const db = getFirestore();
-        const productsQuery = collection(db, 'products');
-        const itemsVenta = getDocs(productsQuery).then((querySnapshot) => {
-            console.log(querySnapshot);
-        })
+//    useEffect(() => {
+//        const db = getFirestore();
+//        const productsQuery = collection(db, 'itemsVenta');
+//        const itemsVenta = getDocs(productsQuery).then((querySnapshot) => {
+//            console.log(querySnapshot);
+//        })
 
-        if (!id) {
+//        if (!id) {
+//            setFilteredItems(itemsVenta);
+//        } else {
+//            const filtered = itemsVenta.filter((product) => product.category === id);
+//        setFilteredItems(filtered);
+//        }
+//    }, [id]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+        try {
+            const db = getFirestore();
+            const productsQuery = collection(db, 'products');
+            const querySnapshot = await getDocs(productsQuery);
+
+            const itemsVenta = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+            }));
+
+            if (!id) {
             setFilteredItems(itemsVenta);
-        } else {
+            } else {
             const filtered = itemsVenta.filter((product) => product.category === id);
-        setFilteredItems(filtered);
-        }
+            setFilteredItems(filtered);
+            }
+        } catch (error) {
+            console.error('Error al obtener datos:', error);
+            setFilteredItems([]);
+        };
+        };
+
+        fetchData();
     }, [id]);
 
     return (
         <div className='item-list-container'>
-            {filteredItems.map((product) => {
+            {filteredItems.map((product) => (
             <Link to={'item/' + product.id} key={product.id} className='link'>
                 <Item
                     title={product.title}
@@ -47,7 +74,7 @@ const [filteredItems, setFilteredItems] = useState([]);
                     img={product.img}
                 />
             </Link>
-})}
+))};
 
             <Routes>
                 <Route path='/item/:id' element={<ItemDetailContainer/>}/>
