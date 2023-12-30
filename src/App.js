@@ -5,19 +5,6 @@ import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer
 import Cart from './pages/Cart/Cart';
 import CartProvider from './context/CartProvider';
 import ThemeProvider from './context/ThemeProvider';
-import { initializeApp } from 'firebase/app';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDdUDhjJskMcDM0JyWwMoWJHsRG8UwMRPw",
-  authDomain: "miss-skull-shop.firebaseapp.com",
-  projectId: "miss-skull-shop",
-  storageBucket: "miss-skull-shop.appspot.com",
-  messagingSenderId: "679777054877",
-  appId: "1:679777054877:web:f85e3b53142f26cd426474"
-};
-
-const app = initializeApp(firebaseConfig);
-
 function App() {
 
   return (
