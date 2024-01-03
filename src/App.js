@@ -5,6 +5,7 @@ import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer
 import Cart from './pages/Cart/Cart';
 import CartProvider from './context/CartProvider';
 import ThemeProvider from './context/ThemeProvider';
+import CheckOut from './components/CheckOut/CheckOut';
 function App() {
 
   return (
@@ -14,10 +15,11 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<ItemListContainer/>}/>
-        <Route path='/category/:categoria' element={<ItemListContainer/>}/>
+        <Route path='/categoria/:categoria' element={<ItemListContainer/>}/>
         <Route path='/item/:id' element={<ItemDetailContainer/>}/>
-        <Route path='/category/:categoria/item/:id' element={<ItemDetailContainer/>}/>
+        <Route path='/categoria/:categoria/item/:id' element={<ItemDetailContainer/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/checkout' element={<CheckOut/>}/>
       </Routes>
       </CartProvider>
       </ThemeProvider>

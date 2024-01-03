@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Item from '../Item/Item';
 import './ItemListStyles.css';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
@@ -7,6 +7,7 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 const ItemList = () => {
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState(true);
+
 
 useEffect(() => {
     const fetchProducts = async () => {
@@ -20,10 +21,12 @@ useEffect(() => {
             id: doc.id,
             ...doc.data(),
         }));
+
+        setLoading(false);
         setProducts(productsData);
+        console.log('Products:', productsData);
     } catch (error) {
-        // console.error('Error fetching products: ', error);
-    } finally {
+        console.error('Error fetching products: ', error);
         setLoading(false);
     }
     };
@@ -37,7 +40,7 @@ return (
         <p>Cargando productos...</p>
     ) : (
         products.map((product) => (
-            <Link to={'item/' + product.id} key={product.id}>
+            <Link className='link' to={'item/' + product.id} key={product.id}>
             <Item
                 title={product.title}
                 description={product.description}

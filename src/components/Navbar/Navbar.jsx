@@ -21,10 +21,10 @@ import { ThemeContext } from '../../context/ThemeContext';
                 <div>
                     <ul className='list-container'>
                     <li>
-                        <NavLink activeclassname='active' to={'/category/amigurumis'} className='category-button'>Amigurumis</NavLink>
+                        <NavLink activeclassname='active' to={'/categoria/amigurumis'} className='category-button'>Amigurumis</NavLink>
                     </li>
                     <li>
-                        <NavLink activeclassname='active' to={'/category/totebags'} className='category-button'>Totebags</NavLink>
+                        <NavLink activeclassname='active' to={'/categoria/totebags'} className='category-button'>Totebags</NavLink>
                     </li>
                     </ul>
                 </div>

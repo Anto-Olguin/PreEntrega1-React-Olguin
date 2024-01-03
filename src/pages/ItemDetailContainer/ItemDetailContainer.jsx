@@ -20,10 +20,10 @@ const ItemDetailContainer = () => {
                     ...productDoc.data(),
                 });
             } else {
-                // console.error('Producto no encontrado');
+                console.error('Producto no encontrado');
             }
         } catch (error) {
-            // console.error('Error al obtener el producto:', error);
+            console.error('Error al obtener el producto:', error);
         }
     };
 

@@ -8,40 +8,35 @@ import { ThemeContext } from '../../context/ThemeContext';
 
 
 const ItemListContainer = () => {
-
-const [filteredItems, setFilteredItems] = useState([]);
-const { categoria } = useParams();
-const colorTheme = useContext(ThemeContext);
+    const [filteredItems, setFilteredItems] = useState([]);
+    const categoria = useParams().categoria;
+    const colorTheme = useContext(ThemeContext);
+    const { id } = useParams();
 
 useEffect(() => {
-    const fetchProducts = async () => {
-        // console.log('Categoría actual:', categoria);
+        console.log('Categoria actual:', categoria);
     const productsRef = collection(db, 'products');
-    const q = categoria ? query(productsRef, where('category', '==', categoria)) : productsRef;
+    //const querySnapshot = !id ? productsRef : query(productsRef, where('categoria', '==', id));
+    const querySnapshot = categoria ? query(productsRef, where('categoria', '==', categoria)) : productsRef;
 
-    try {
-        const resp = await getDocs(q);
-        // console.log('Respuesta de Firestore:', resp.docs.map(doc => doc.data()));
+    getDocs(querySnapshot)
+        .then((resp) => {
+            const products = resp.docs.map((doc) => {
+                return { id: doc.id, ...doc.data() };
+            });
+            setFilteredItems(products);
+    });
 
-        setFilteredItems(
-            resp.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }))
-        );
-    } catch (error) {
-        // console.error('Error al obtener datos:', error);
-        }
-    };
+    }, [categoria, id]);
 
-    fetchProducts();
-}, [categoria]);
-
+    useEffect(() => {
+        console.log('Productos', filteredItems);
+    }, [filteredItems]);
 
 return (
     <div style={{ backgroundColor: colorTheme.theme === 'light' ? '#F1EAFF' : '#662549' }}>
         <h2>Productos</h2>
-        <ItemList productos={filteredItems}/>
+        <ItemList products={filteredItems}/>
     </div>
 );
 };

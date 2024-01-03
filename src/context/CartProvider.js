@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { CartContext } from "./CartContext";
+import { useEffect, useState } from 'react';
+import { CartContext } from './CartContext';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from "../firebase/config";
+import { db } from '../firebase/config';
 
 const CartProvider = ({children}) => {
     const [products, setProducts] = useState([]);
@@ -38,12 +38,20 @@ const CartProvider = ({children}) => {
         localStorage.setItem('cartProducts', JSON.stringify(updatedProducts));
     };
 
+    const cantidadEnCarrito = () => {
+        return products.reduce((acc, product) => acc + product.quantity, 0);
+    }
+
+    const precioTotal = () => {
+        return products.reduce((acc, product) => acc + product.price * product.quantity, 0);
+    }
+
     const clear = () => {
-        console.log('Clearing the cart...');
+        console.log('Vaciando el carrito...');
         setProducts([]);
         setProductQuantity(0);
         localStorage.removeItem('cartProducts');
-        console.log('Cart cleared');
+        console.log('Carrito vacio');
     };
 
     const isInCart = (id) => {
@@ -69,12 +77,11 @@ const CartProvider = ({children}) => {
     }, []);
 
     useEffect(() => {
-        // console.log('Cart updated:', products);
         setProductQuantity(products.reduce((acc, product) => acc + product.quantity, 0));
     }, [products]);
 
     return (
-        <CartContext.Provider value={{products, addItem, productQuantity, clear, removeItem, isInCart}}>
+        <CartContext.Provider value={{products, addItem, productQuantity, clear, removeItem, isInCart, cantidadEnCarrito, precioTotal}}>
         {children}
         </CartContext.Provider>
     );

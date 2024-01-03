@@ -8,11 +8,6 @@
     list-style: none;
 }
 
-.link {
-    text-decoration: none;
-    color: gray;
-}
-
 h2 {
     display: flex;
     justify-content: center;
@@ -51,4 +46,52 @@ h2 {
     font-family: 'Mate', serif;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+#checkout {
+    background-color: transparent;
+    color: #662549;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: solid;
+    font-family: 'Mate', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.enviar {
+    background-color: transparent;
+    color: #662549;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: solid;
+    font-family: 'Mate', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.form {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+input {
+    color: #662549;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: solid;
+    font-family: inherit;
+    font-size: 1rem;
 }
