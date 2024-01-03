@@ -1,22 +1,35 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
-import itemsVenta from '../../components/Products/Products';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState({itemsVenta});
+    const [product, setProduct] = useState(null);
     const { id } = useParams();
 
-    const fetchProduct = () => {
-        const selectedProduct = itemsVenta.find((p) => p.id === parseInt(id));
-        if (selectedProduct) {
-            setProduct(selectedProduct);
+    const fetchProduct = async () => {
+        const productRef = doc(db, 'products', id);
+
+        try {
+            const productDoc = await getDoc(productRef);
+
+            if (productDoc.exists()) {
+                setProduct({
+                    id: productDoc.id,
+                    ...productDoc.data(),
+                });
+            } else {
+                // console.error('Producto no encontrado');
+            }
+        } catch (error) {
+            // console.error('Error al obtener el producto:', error);
         }
     };
 
     useEffect(() => {
         fetchProduct();
-    }, []);
+    }, [id]);
 
     return (
         <div>

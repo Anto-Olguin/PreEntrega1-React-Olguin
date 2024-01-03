@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Item from '../Item/Item';
 import './ItemListStyles.css';
-import { getFirestore, collection } from 'firebase/firestore';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 const ItemList = () => {
 const [products, setProducts] = useState([]);
@@ -10,15 +10,19 @@ const [loading, setLoading] = useState(true);
 
 useEffect(() => {
     const fetchProducts = async () => {
-    const db = getFirestore();
-    const productsCollection = collection(db, 'products');
+        const db = getFirestore();
+        const productsCollection = collection(db, 'products');
 
     try {
-        const snapshot = await productsCollection.get();
-        const productsData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        const snapshot = await getDocs(productsCollection);
+
+        const productsData = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
         setProducts(productsData);
     } catch (error) {
-        console.error('Error fetching products: ', error);
+        // console.error('Error fetching products: ', error);
     } finally {
         setLoading(false);
     }
@@ -38,7 +42,7 @@ return (
                 title={product.title}
                 description={product.description}
                 price={product.price}
-                image={product.img}
+                img={product.img}
             />
             </Link>
         ))

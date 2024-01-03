@@ -1,18 +1,27 @@
 import { useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
-import itemsVenta from "../components/Products/Products";
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from "../firebase/config";
 
 const CartProvider = ({children}) => {
     const [products, setProducts] = useState([]);
     const [productQuantity, setProductQuantity] = useState(0);
 
-    /* const saveInLocalStorage = (products) => {
-        localStorage.setItem('products', JSON.stringify(products))
-    }; */
+    const fetchProductsFromFirestore = async () => {
+        const productsRef = collection(db, 'products');
+        const productsSnapshot = await getDocs(productsRef);
+
+        const productsData = productsSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+
+        return productsData;
+    };
 
     const addItem = (product, quantity) => {
         if(isInCart(product.id)) {
-            const newProducts = itemsVenta.map((item) => {
+            const newProducts = products.map((item) => {
                 if(item.id === product.id) {
                     return {
                         ...item, quantity: item.quantity + quantity
@@ -28,6 +37,7 @@ const CartProvider = ({children}) => {
     };
 
     const clear = () => {
+       // console.log('Clearing the cart...');
         setProducts([]);
     };
 
@@ -38,8 +48,16 @@ const CartProvider = ({children}) => {
     const removeItem = (productId) => {
         setProducts(products.filter((product) => product.id !== productId));
     };
+
     useEffect(() => {
-        setProductQuantity(products.reduce((acc, product) => acc + product.quantity, 0), 0);
+        fetchProductsFromFirestore().then((fetchedProducts) => {
+            setProducts(fetchedProducts);
+        });
+    }, []);
+
+    useEffect(() => {
+        // console.log('Cart updated:', products);
+        setProductQuantity(products.reduce((acc, product) => acc + product.quantity, 0));
     }, [products]);
 
     return (

@@ -12,7 +12,7 @@ const CartWidget = () => {
             <Icon.Cart className='cart-icon'/>
             <div className='cart-count'>
                 <span>
-                    {productQuantity}
+                    {String(productQuantity)}
                 </span>
             </div>
             </Link>
