@@ -10,7 +10,7 @@ import { ThemeContext } from '../../context/ThemeContext';
         return (
             <div className='navbar-container'>
                 <div>
-                    <a href='http://localhost:3000/' className='logo'>
+                    <a href='http://localhost:3000' className='logo'>
                     <img src={logo} alt="Logo Pollila" width={100} />
                     </a>
                     <button className='themeButton' onClick={() => setTheme((currentValue) => currentValue === 'light' ? '#662549' : '#F1EAFF')}>Tema</button>

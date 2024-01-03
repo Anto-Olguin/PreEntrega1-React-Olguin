@@ -1,10 +1,14 @@
 import './CartStyles.css';
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
 import Item from "../../components/Item/Item";
 
 const Cart = () => {
     const {products, clear, removeItem} = useContext(CartContext);
+
+    useEffect(() => {
+        localStorage.setItem('cartProducts', JSON.stringify(products));
+    }, [products]);
 
     return (
         <div>
@@ -26,7 +30,7 @@ const Cart = () => {
                     </div>
                 );
             })}
-        </div> : <h3 className='aviso'>No hay productos en el carrito</h3>
+        </div>: <h3 className='aviso'>No hay productos en el carrito</h3>
         }
         </div>
     );

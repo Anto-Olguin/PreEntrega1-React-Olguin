@@ -5,7 +5,7 @@ import { db } from "../firebase/config";
 
 const CartProvider = ({children}) => {
     const [products, setProducts] = useState([]);
-    const [productQuantity, setProductQuantity] = useState(0);
+    const [productQuantity, setProductQuantity] = useState(1);
 
     const fetchProductsFromFirestore = async () => {
         const productsRef = collection(db, 'products');
@@ -33,12 +33,17 @@ const CartProvider = ({children}) => {
             return;
         };
 
-        setProducts([...products, {...product, quantity}]);
+        const updatedProducts = [...products, {...product, quantity}];
+        setProducts(updatedProducts);
+        localStorage.setItem('cartProducts', JSON.stringify(updatedProducts));
     };
 
     const clear = () => {
-       // console.log('Clearing the cart...');
+        console.log('Clearing the cart...');
         setProducts([]);
+        setProductQuantity(0);
+        localStorage.removeItem('cartProducts');
+        console.log('Cart cleared');
     };
 
     const isInCart = (id) => {
@@ -46,13 +51,21 @@ const CartProvider = ({children}) => {
     };
 
     const removeItem = (productId) => {
-        setProducts(products.filter((product) => product.id !== productId));
+        const updatedProducts = products.filter((product) => product.id !== productId);
+        setProducts(updatedProducts);
+        localStorage.setItem('cartProducts', JSON.stringify(updatedProducts));
     };
 
     useEffect(() => {
-        fetchProductsFromFirestore().then((fetchedProducts) => {
-            setProducts(fetchedProducts);
-        });
+        const storedProducts = localStorage.getItem('cartProducts');
+        if (storedProducts) {
+            setProducts(JSON.parse(storedProducts));
+        } else {
+            fetchProductsFromFirestore().then((fetchedProducts) => {
+                setProducts(fetchedProducts);
+                localStorage.setItem('cartProducts', JSON.stringify(fetchedProducts));
+            });
+        }
     }, []);
 
     useEffect(() => {
